@@ -5,24 +5,18 @@ This repository includes classification and regression algorithms.
 
 a) Mean
 
-# import necessary libraries
+
 from numpy import nan
 from numpy import isnan
 import pandas as pd
 from sklearn.impute import SimpleImputer
-# load the dataset
 dataset = pd.read_csv('pima-indians-diabetes.csv', header=None)
-# Getting the count of missing values in each column 
 print('Missing values before imputation:', dataset.isnull().sum())
-# retrieve the numpy array
 values = dataset.values
 print('\nValues before imputation:\n', values)
-# define the imputer
 imputer = SimpleImputer(missing_values=nan, strategy='mean')
-# transform the dataset
 transformed_values = imputer.fit_transform(values)
 print('\nValues after imputation:\n', transformed_values)
-# Getting the count of missing values after imputation
 print('\nMissing values after imputation:', isnan(transformed_values).sum())
 
 
